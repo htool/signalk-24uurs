@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<script type='text/javascript' src="./Chart.min.js"></script>
+<script type='text/javascript' src='/jquery/dist/jquery.min.js'></script>
+<title>Polar performance</title>
+<body style="background-color:#020202;">
+
+<canvas id="myChart" style="width:100%;max-width:1200px"></canvas>
+
+<script>
+$.getJSON("/plugins/signalk-polar-performance-plugin/chartData", function(json) {
+  showChart(json)
+})
+
+function showChart (data) {
+  console.log(data)
+  new Chart("myChart", {
+    type: "scatter",
+    data: data,
+    options: {
+      legend: {
+        display: true,
+        labels: {
+          fontSize: 16,
+          fontColor: 'white'
+        }
+      },
+      spanGaps: true,
+      scales: {
+        x: {
+          type: 'linear',
+          ticks: {
+            color: 'white',
+            font: {
+              size: 14
+            }
+          }
+        },
+        y: {
+          type: 'linear',
+          ticks: {
+            color: 'white',
+            font: {
+              size: 14
+            }
+          }
+        },
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'True wind angle (TWA)',
+            fontColor: 'white',
+            fontSize: 16
+          },
+          ticks: {
+            display: true,
+            fontColor: 'white',
+            fontSize: 16,
+          }, 
+          gridLines: {
+            color: 'rgba(180,180,180,0.7)',
+            lineWidth: 1
+          }
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Target boat speed (POL SPD)',
+            fontColor: 'white',
+            fontSize: 14
+          },
+          ticks: {
+            display: true,
+            fontColor: 'white',
+            fontSize: 14,
+          }, 
+          gridLines: {
+            color: 'rgba(180,180,180,0.7)',
+            lineWidth: 1
+          }
+        }],
+      },
+      tooltips: {
+        enabled: true,
+        callbacks: {
+          label: function (tooltipItems, data) {
+            console.log("tooltipItems: " + JSON.stringify(tooltipItems))
+            console.log("data: " + data)
+            let label = tooltipItems.xLabel + "° " + tooltipItems.yLabel + " kts"
+            return label
+          }
+        },
+        backgroundColor: '#666',
+        titleFontSize: 18,
+        titleFontColor: '#0066ff',
+        bodyFontColor: '#ddd',
+        bodyFontSize: 18,
+        displayColors: false
+      }
+    }
+  })
+
+  var ctx = document.getElementById("myChart")
+  ctx.style.backgroundColor = 'rgba(0,0,0,0.8)'
+  ctx.style.fontColor = 'white'
+}
+</script>
+

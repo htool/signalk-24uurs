@@ -1,0 +1,25 @@
+{
+  "name": "signalk-24uurs",
+  "version": "0.0.1",
+  "description": "A plugin specifically for the 24 uurs sail race in The Netherlands",
+  "main": "plugin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htool/signalk-24uurs.git"
+  },
+  "author": "hans@defect.org",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/htool/signalk-24uurs/issues"
+  },
+  "homepage": "https://github.com/htool/signalk-24uurs#readme",
+  "keywords": [
+    "signalk-webapp",
+    "signalk-node-server-plugin",
+    "signalk-category-instruments",
+    "signalk-category-chart-plotters"
+  ]
+}

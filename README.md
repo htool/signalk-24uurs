@@ -1,2 +1,2 @@
-# signalk-24uurs
-Plugin especially for the 24 hour race in The Netherlands
+# 24 uurs plugin
+Determine the best order of legs for the 24 hours race where the most sailed miles in 24 hours makes you win.
